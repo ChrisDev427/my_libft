@@ -27,16 +27,16 @@ all: $(NAME)
 $(NAME): $(OBJECT_FILES)
 	ar rsc $(NAME) $(OBJECT_FILES)
 	@echo "\n"
-	@echo "<<<<< libft.a created ! >>>>>"
+	@echo "\033[92m<<<<< libft.a created ! >>>>>\033[0m"
 
 clean:
 	@rm -rf $(OBJECT_FILES) $(BONUS_OBJ)
 	@echo "\n"
-	@echo "<<<<< object files cleaned ! >>>>>"
+	@echo "\033[92m<<<<< object files cleaned ! >>>>>\033[0m"
 
 fclean: clean
 	@rm -rf $(NAME)
-	@echo "<<<<< fclean done ! >>>>>"
+	@echo "\033[92m<<<<< fclean done ! >>>>>\033[0m"
 
 re: fclean all
-	@echo "<<<<< Make re done ! >>>>>"
+	@echo "\033[92m<<<<< Make re done ! >>>>>\033[0m"
