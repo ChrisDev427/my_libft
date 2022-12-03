@@ -6,7 +6,7 @@
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/27 19:33:48 by chmassa          ###   ########.fr       */
+/*   Updated: 2022/12/03 08:13:47 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <string.h>
+# include <stdarg.h>
 
 typedef struct s_list
 {
@@ -98,7 +99,16 @@ void	ft_free_tab_2d(char **tab);
 void	ft_rev_int_tab(int *tab, size_t size);
 void	ft_sort_int_tab(int *tab, size_t size);
 int		ft_nb_digit(long int nb);
+//----------------------------------------------------------------------
+//------ ft_printf -----------------------------------------------------
+//----------------------------------------------------------------------
  
-
+int		ft_putstr_ptf(char *s);
+int		ft_printf(const char *s, ...);
+int		ft_flag_linker(char flag, va_list list);
+int		ft_print_x(unsigned int n, char *base);
+int		ft_print_u(unsigned int n);
+int		ft_print_p(unsigned long long int n, char *base);
+int		ft_print_di(int nb);
 
 #endif

@@ -14,6 +14,7 @@ SRCS = srcs/lst/ft_lstnew.c srcs/lst/ft_lstadd_front.c srcs/lst/ft_lstadd_back.c
 	   srcs/mem/ft_calloc.c srcs/mem/ft_memchr.c srcs/mem/ft_memmove.c srcs/mem/ft_memcmp.c srcs/mem/ft_memset.c srcs/mem/ft_memcpy.c \
 	   srcs/is/ft_isalpha.c srcs/is/ft_isprint.c srcs/is/ft_isalnum.c srcs/is/ft_isdigit.c srcs/is/ft_isascii.c \
 	   srcs/tab/ft_free_tab_2d.c srcs/tab/ft_nb_digit.c srcs/tab/ft_rev_int_tab.c srcs/tab/ft_sort_int_tab.c \
+	   srcs/ft_printf/ft_putstr_ptf.c srcs/ft_printf/ft_printf.c srcs/ft_printf/ft_flag_linker.c srcs/ft_printf/ft_print_x.c srcs/ft_printf/ft_print_di.c srcs/ft_printf/ft_print_u.c srcs/ft_printf/ft_print_p.c
 
 OBJECT_FILES = $(SRCS:.c=.o)
 
