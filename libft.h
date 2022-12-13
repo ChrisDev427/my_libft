@@ -6,7 +6,7 @@
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2022/12/03 08:13:47 by chmassa          ###   ########.fr       */
+/*   Updated: 2022/12/13 10:31:52 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <stdio.h>
 # include <string.h>
 # include <stdarg.h>
+# include <fcntl.h>
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_list
 {
@@ -40,9 +44,11 @@ char	*ft_itoa(int n);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+char	*get_next_line(int fd);
 void	ft_bzero(void *s, size_t n);
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_strrev(char *str);
+void	ft_strcpy(char *dst, const char *src);
 int		ft_atoi(const char *str);
 int		ft_strncmp(const char *s1, const char *s2,	size_t n);
 //----------------------------------------------------------------------
