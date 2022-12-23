@@ -6,7 +6,7 @@
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2022/12/13 10:31:52 by chmassa          ###   ########.fr       */
+/*   Updated: 2022/12/23 13:18:04 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,25 @@ void	ft_print_strs_array(char **strs);
 //------ linked lists --------------------------------------------------
 //----------------------------------------------------------------------
 t_list	*ft_lstnew(void *content);
-t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+//------- lstadd -------------------------------------------------------
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstadd_position(t_list **lst, t_list *new, int position);
+//------- lstdel -------------------------------------------------------
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstiter(t_list *lst, void (*f)(void *));
+//----------------------------------------------------------------------
+void	ft_lstdel_front(t_list **lst);
+void	ft_lstdel_back(t_list **lst);
+void	ft_lstdel_position(t_list **lst, int position);
+void	ft_lstdel_all(t_list **lst);
+//-------- print, size, last -------------------------------------------
 void	ft_lstprint_str(t_list *lst);
+void	ft_lstprint_int(t_list *lst);
 int		ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 //----------------------------------------------------------------------
 //------ tab -----------------------------------------------------------
 //----------------------------------------------------------------------
