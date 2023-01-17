@@ -6,7 +6,7 @@
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2022/12/23 13:18:04 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/01/17 18:17:42 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 void	ft_strrev(char *str);
 void	ft_strcpy(char *dst, const char *src);
 int		ft_atoi(const char *str);
+int		ft_atoi_base(const char *str, const char *base);
 int		ft_strncmp(const char *s1, const char *s2,	size_t n);
 //----------------------------------------------------------------------
 //------ memory --------------------------------------------------------
@@ -81,6 +82,7 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr(int n);
+void	ft_putnbr_base(long long nbr, const char *base);
 void	ft_putchar(char c);
 void	ft_putstr(char *s);
 void	ft_putendl(char *s);
