@@ -6,7 +6,7 @@
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/01/17 18:17:42 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/02/07 15:39:25 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	ft_strcpy(char *dst, const char *src);
 int		ft_atoi(const char *str);
 int		ft_atoi_base(const char *str, const char *base);
 int		ft_strncmp(const char *s1, const char *s2,	size_t n);
+int		ft_strcmp(const char *s1, const char *s2);
 //----------------------------------------------------------------------
 //------ memory --------------------------------------------------------
 //----------------------------------------------------------------------
@@ -100,7 +101,7 @@ void	ft_lstadd_position(t_list **lst, t_list *new, int position);
 //------- lstdel -------------------------------------------------------
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
-//----------------------------------------------------------------------
+//----------------------------------------------------------------------
 void	ft_lstdel_front(t_list **lst);
 void	ft_lstdel_back(t_list **lst);
 void	ft_lstdel_position(t_list **lst, int position);
@@ -111,16 +112,19 @@ void	ft_lstprint_int(t_list *lst);
 int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 //----------------------------------------------------------------------
+//------ free ----------------------------------------------------------
+//----------------------------------------------------------------------
+void	free_int_tab2d(int **tab, int size);
+void	free_str_tab(char **tab);
+//----------------------------------------------------------------------
 //------ tab -----------------------------------------------------------
 //----------------------------------------------------------------------
-void	ft_free_tab_2d(char **tab);
 void	ft_rev_int_tab(int *tab, size_t size);
 void	ft_sort_int_tab(int *tab, size_t size);
 int		ft_nb_digit(long int nb);
 //----------------------------------------------------------------------
 //------ ft_printf -----------------------------------------------------
 //----------------------------------------------------------------------
- 
 int		ft_putstr_ptf(char *s);
 int		ft_printf(const char *s, ...);
 int		ft_flag_linker(char flag, va_list list);

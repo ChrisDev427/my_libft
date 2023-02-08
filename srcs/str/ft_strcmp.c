@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel_all.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 12:07:14 by chmassa           #+#    #+#             */
-/*   Updated: 2023/02/07 15:38:22 by chmassa          ###   ########.fr       */
+/*   Created: 2022/09/22 06:44:46 by chmassa           #+#    #+#             */
+/*   Updated: 2023/02/07 10:30:18 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel_all(t_list **lst)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_list	*tmp;
-
-	if (!(*lst))
-		return ;
-	while (*lst)
+	while ((*s1 != '\0') && (*s1 == *s2))
 	{
-		tmp = *lst;
-		*lst = (*lst)->next;
-		free (tmp);
+		s1++;
+		s2++;
 	}
+	if (*s1 - *s2 > 0)
+		return (1);
+	if (*s1 - *s2 < 0)
+		return (-1);
+	return (0);
 }

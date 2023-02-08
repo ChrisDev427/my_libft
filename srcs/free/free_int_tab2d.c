@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel_all.c                                    :+:      :+:    :+:   */
+/*   free_int_tab2d.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 12:07:14 by chmassa           #+#    #+#             */
-/*   Updated: 2023/02/07 15:38:22 by chmassa          ###   ########.fr       */
+/*   Created: 2023/02/02 10:05:22 by chmassa           #+#    #+#             */
+/*   Updated: 2023/02/06 08:22:41 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel_all(t_list **lst)
+void	free_int_tab2d(int **tab, int size)
 {
-	t_list	*tmp;
+	int	i;
 
-	if (!(*lst))
+	i = 0;
+	if (!tab)
 		return ;
-	while (*lst)
+	while (i < size)
 	{
-		tmp = *lst;
-		*lst = (*lst)->next;
-		free (tmp);
+		free(tab[i]);
+		i++;
 	}
+	free(tab);
 }

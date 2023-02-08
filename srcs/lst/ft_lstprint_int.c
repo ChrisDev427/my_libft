@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstprint_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:12:15 by chmassa           #+#    #+#             */
-/*   Updated: 2022/12/23 13:20:34 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:18:05 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	ft_lstprint_int(t_list *lst)
 
 	if (!lst)
 	{
-		puts("Empty list");
+		ft_putstr_fd("Empty list", 2);
 		return ;
 	}
 	tmp = lst;
-	while(tmp)
+	while (tmp)
 	{
-		printf("|%d| >> ", (int)tmp->content);
+		ft_printf("|%d| >> ", tmp->content);
 		tmp = tmp->next;
 	}
 }

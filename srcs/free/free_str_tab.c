@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free_tab_2D.c                                   :+:      :+:    :+:   */
+/*   free_str_tab.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 16:30:09 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/27 18:58:04 by chmassa          ###   ########.fr       */
+/*   Created: 2023/01/26 08:39:00 by chmassa           #+#    #+#             */
+/*   Updated: 2023/02/06 08:23:19 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_free_tab_2d(char **tab)
+void	free_str_tab(char **tab)
 {
 	int	i;
-	int	j;
 
+	i = 0;
 	if (!tab)
 		return ;
-	i = 0;
-	j = 0;
 	while (tab[i])
 	{
 		free(tab[i]);
-	i++;
+		i++;
 	}
 	free(tab);
 }
