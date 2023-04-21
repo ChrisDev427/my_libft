@@ -1,39 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap.c                                        :+:      :+:    :+:   */
+/*   lstprint.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 14:22:35 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/22 17:09:36 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:12:15 by chmassa           #+#    #+#             */
+/*   Updated: 2023/01/05 15:20:08 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
+void	ft_lstprint(t_list *lst)
 {
-	t_list	*new;
 	t_list	*tmp;
 
-	if (!lst || !f || !del)
-		return (NULL);
-	tmp = ft_lstnew(f(lst->content));
-	if (!tmp)
-		return (NULL);
-	new = tmp;
-	lst = lst->next;
-	while (lst)
+	if (!lst)
 	{
-		new->next = ft_lstnew((*f)(lst->content));
-		if (!new->next)
-		{
-			ft_lstclear(&tmp, del);
-			return (NULL);
-		}
-		new = new->next;
-		lst = lst->next;
+		ft_putstr("Empty list\n");
+		return ;
 	}
-	return (tmp);
+	tmp = lst;
+	while (tmp)
+	{
+		ft_printf("%s\n", tmp->str);
+		tmp = tmp->next;
+	}
 }

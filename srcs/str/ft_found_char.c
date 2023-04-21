@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_found_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 18:21:49 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/06 18:24:31 by chmassa          ###   ########.fr       */
+/*   Created: 2023/03/03 14:00:38 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/19 18:17:09 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+int	ft_found_char(const char *s, char c)
 {
-	new->next = *lst;
-	*lst = new;
+	int	i;
+
+	if (!s || !c)
+		return (0);
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
 }

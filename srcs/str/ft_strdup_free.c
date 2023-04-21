@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_position.c                               :+:      :+:    :+:   */
+/*   ft_strdup_free.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 12:16:19 by chmassa           #+#    #+#             */
-/*   Updated: 2022/12/23 12:16:57 by chmassa          ###   ########.fr       */
+/*   Created: 2023/04/06 14:44:34 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:57:28 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_position(t_list **lst, t_list *new, int position)
+char	*ft_strdup_free(const char *s1)
 {
+	char	*str;
 	int		i;
-	t_list	*tmp;
+	int		s1len;
 
-	if (!(*lst))
-		return ;
-	if (position < 2 || position > ft_lstsize(*lst))
-		return ;
-	i = 2;
-	tmp = *lst;
-	while (tmp)
+	i = 0;
+	s1len = 0;
+	while (s1[s1len])
+		s1len++;
+	str = malloc(sizeof(char) * s1len + 1);
+	if (str == NULL)
+		return (NULL);
+	else
 	{
-		if (i == position)
+		while (s1[i])
 		{
-			new->next = tmp->next;
-			tmp->next = new;
+			str[i] = s1[i];
+			i++;
 		}
-		tmp = tmp->next;
-		i++;
+		str[i] = '\0';
 	}
+	free((char *)s1);
+	return (str);
 }

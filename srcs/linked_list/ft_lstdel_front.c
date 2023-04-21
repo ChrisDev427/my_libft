@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 18:17:54 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/06 18:20:39 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:11:01 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:37:04 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+void	ft_lstdel_front(t_list **lst)
 {
-	t_list	*new;
+	t_list	*temp;
 
-	new = malloc(sizeof(t_list));
-	if (new == NULL)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	if (!(*lst))
+		return ;
+	if ((*lst)->next)
+	{
+		temp = (*lst)->next;
+		free((*lst)->str);
+		free((*lst));
+		*lst = temp;
+		(*lst)->prev = NULL;
+	}
+	else
+	{
+		free((*lst)->str);
+		free((*lst));
+		*lst = NULL;
+	}
 }

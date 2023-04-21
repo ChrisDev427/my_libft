@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstdel_all.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/23 12:08:22 by chmassa           #+#    #+#             */
-/*   Updated: 2022/12/23 12:10:35 by chmassa          ###   ########.fr       */
+/*   Created: 2022/12/23 12:07:14 by chmassa           #+#    #+#             */
+/*   Updated: 2023/03/27 17:55:44 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdel_back(t_list **lst)
+void	ft_lstdel_all(t_list **lst)
 {
 	t_list	*tmp;
 
 	if (!(*lst))
 		return ;
-	tmp = *lst;
-	while (tmp)
-	{
-		if (tmp->next->next == NULL)
-		{
-			free(tmp->next);
-			tmp->next = NULL;
-		}
-		tmp = tmp->next;
+	while (*lst)
+	{		
+		free((*lst)->str);
+		tmp = *lst;
+		*lst = (*lst)->next;
+		free (tmp);
 	}
 }

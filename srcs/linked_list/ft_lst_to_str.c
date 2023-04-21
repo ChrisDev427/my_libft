@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lst_to_str.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 08:02:58 by chmassa           #+#    #+#             */
-/*   Updated: 2023/04/06 14:43:39 by chmassa          ###   ########.fr       */
+/*   Created: 2023/03/31 14:11:54 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/12 18:19:23 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_lst_to_str(t_list *lst)
 {
 	char	*str;
-	int		i;
-	int		s1len;
+	t_list	*tmp;
 
-	i = 0;
-	s1len = 0;
-	while (s1[s1len])
-		s1len++;
-	str = malloc(sizeof(char) * s1len + 1);
-	if (str == NULL)
+	if (!lst)
 		return (NULL);
-	else
+	tmp = lst;
+	str = ft_calloc(1, sizeof(char));
+	while (tmp)
 	{
-		while (s1[i])
-		{
-			str[i] = s1[i];
-			i++;
-		}
-		str[i] = '\0';
+		str = ft_strjoin_free_s1(str, tmp->str);
+		tmp = tmp->next;
 	}
 	return (str);
 }

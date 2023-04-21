@@ -1,26 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel_actual.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 18:47:06 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/22 17:10:07 by chmassa          ###   ########.fr       */
+/*   Created: 2023/03/27 10:20:55 by chmassa           #+#    #+#             */
+/*   Updated: 2023/03/27 11:11:07 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+void	ft_lstdel_actual(t_list **lst, t_list *tmp)
 {
-	int	nb_element;
+	t_list	*tmp2;
 
-	nb_element = 0;
-	while (lst)
+	if (!(*lst))
+		return ;
+	if (!tmp)
+		return ;
+	if (tmp->next == NULL)
+		ft_lstdel_back(lst);
+	else if (tmp->prev == NULL)
+		ft_lstdel_front(lst);
+	else
 	{
-		nb_element++;
-		lst = lst->next;
+		free(tmp->str);
+		tmp2 = tmp;
+		tmp = tmp->prev;
+		tmp->next = tmp->next->next;
+		tmp->next->prev = tmp;
+		free(tmp2);
 	}
-	return (nb_element);
 }

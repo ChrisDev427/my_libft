@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint_int.c                                  :+:      :+:    :+:   */
+/*   ft_lstprint_from_head.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 12:12:15 by chmassa           #+#    #+#             */
-/*   Updated: 2023/02/07 16:18:05 by chmassa          ###   ########.fr       */
+/*   Updated: 2023/04/20 11:39:05 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstprint_int(t_list *lst)
+void	ft_lstprint_from_head(t_list *lst)
 {
 	t_list	*tmp;
+	int		node;
 
 	if (!lst)
 	{
-		ft_putstr_fd("Empty list", 2);
+		ft_putstr("Empty list\n");
 		return ;
 	}
+	node = 1;
 	tmp = lst;
+	ft_putstr("-- list --\n");
 	while (tmp)
 	{
-		ft_printf("|%d| >> ", tmp->content);
+		ft_printf("node[%d] [%s]\n", node, tmp->str);
 		tmp = tmp->next;
+		node++;
 	}
+	ft_putstr("------\n");
 }

@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstprint_str.c                                  :+:      :+:    :+:   */
+/*   ft_lstnode_value.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 18:30:22 by chmassa           #+#    #+#             */
-/*   Updated: 2023/02/07 16:18:09 by chmassa          ###   ########.fr       */
+/*   Created: 2023/01/06 13:01:48 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/20 11:37:35 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstprint_str(t_list *lst)
+int	ft_lstnode_value(t_list **lst, int node)
 {
-	if (!lst)
-		return ;
-	while (lst)
+	int	value;
+	int	position;
+
+	position = 1;
+	while (*lst)
 	{
-		ft_putstr(lst->content);
-		lst = lst->next;
+		if (position == node)
+		{
+			value = (*lst)->str;
+		}
+		*lst = (*lst)->next;
+		position ++;
 	}
+	return (value);
 }

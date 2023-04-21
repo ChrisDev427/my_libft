@@ -1,38 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strscmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chmassa <chrisdev427@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/24 08:02:58 by chmassa           #+#    #+#             */
-/*   Updated: 2023/04/06 14:43:39 by chmassa          ###   ########.fr       */
+/*   Created: 2023/03/22 09:03:01 by chmassa           #+#    #+#             */
+/*   Updated: 2023/03/23 12:58:02 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+int	ft_strscmp(char **strtab, char *s)
 {
-	char	*str;
-	int		i;
-	int		s1len;
+	int	i;
 
 	i = 0;
-	s1len = 0;
-	while (s1[s1len])
-		s1len++;
-	str = malloc(sizeof(char) * s1len + 1);
-	if (str == NULL)
-		return (NULL);
-	else
+	while (strtab[i])
 	{
-		while (s1[i])
-		{
-			str[i] = s1[i];
-			i++;
-		}
-		str[i] = '\0';
+		if (ft_strcmp(s, strtab[i]) == 0)
+			return (1);
+		i++;
 	}
-	return (str);
+	return (0);
 }

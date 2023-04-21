@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_isspaces.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 11:25:06 by chmassa           #+#    #+#             */
-/*   Updated: 2022/11/22 17:29:12 by chmassa          ###   ########.fr       */
+/*   Created: 2023/04/18 18:45:04 by chmassa           #+#    #+#             */
+/*   Updated: 2023/04/21 11:53:49 by axfernan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+int	ft_isspaces(char c)
 {
-	t_list	*p;
-
-	if (!lst || !del)
-		return ;
-	while (*lst)
-	{
-		p = (*lst)->next;
-		(*del)((*lst)->content);
-		free (*lst);
-		*lst = p;
-	}
-		*lst = NULL;
+	if (c == '\n' || c == '\t' || c == ' ' || c == '\r'
+		|| c == '\v' || c == '\f')
+		return (1);
+	return (0);
 }
