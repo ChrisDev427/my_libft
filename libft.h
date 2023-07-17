@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axfernan <axfernan@student.42nice.fr>      +#+  +:+       +#+        */
+/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 19:21:09 by chmassa           #+#    #+#             */
-/*   Updated: 2023/04/21 11:52:59 by axfernan         ###   ########.fr       */
+/*   Updated: 2023/07/14 12:32:11 by chmassa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,9 @@ void				free_str_tab(char **tab);
 void				ft_rev_int_tab(int *tab, size_t size);
 void				ft_sort_int_tab(int *tab, size_t size);
 int					ft_nb_digit(long int nb);
+int					ft_strtab_size(char **tab);
+char				**ft_strtab_dup(char **tab);
+int					ft_biggest_str_in_tab(char **tab);
 //----------------------------------------------------------------------
 //------ ft_printf -----------------------------------------------------
 //----------------------------------------------------------------------
@@ -152,5 +155,4 @@ void				ft_lstdel_current(t_list **lst);
 void				ft_lstprint(t_list *lst);
 void				ft_lstprint_from_head(t_list *lst);
 void				ft_lstprint_from_tail(t_list *lst);
-
 #endif

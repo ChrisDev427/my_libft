@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strtab_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 10:42:12 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 12:19:22 by chmassa          ###   ########.fr       */
+/*   Created: 2023/05/29 14:40:48 by chmassa           #+#    #+#             */
+/*   Updated: 2023/07/13 17:54:19 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+int	ft_strtab_size(char **tab)
 {
-	size_t		i;
-	char		*str;
+	int	i;
 
+	if (!tab)
+		return (0);
 	i = 0;
-	str = (char *)s;
-	if (c == 0 && n == 0)
-		return (NULL);
-	if (c == 0 && n == 1)
-		return ((void *)s);
-	while (i < n)
-	{
-		if (str[i] == (char)c)
-			return ((void *)(str + i));
+	while (tab[i])
 		i++;
-	}
-	return (NULL);
+	return (i);
 }

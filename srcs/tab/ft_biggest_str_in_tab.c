@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_biggest_str_in_tab.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: chmassa <chmassa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: chris <chris@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 17:20:33 by chmassa           #+#    #+#             */
-/*   Updated: 2023/07/14 12:19:02 by chmassa          ###   ########.fr       */
+/*   Created: 2023/06/05 11:13:41 by chmassa           #+#    #+#             */
+/*   Updated: 2023/07/13 17:54:43 by chris            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_biggest_str_in_tab(char **tab)
 {
-	while (lst)
+	int	y;
+	int	x;
+	int	biggest_str;
+
+	y = 0;
+	x = 0;
+	biggest_str = 0;
+	while (tab[y])
 	{
-		if (lst->next == NULL)
-			return (lst);
-		lst = lst->next;
+		while (tab[y][x])
+			x++;
+		if (x > biggest_str)
+			biggest_str = x;
+		x = 0;
+		y++;
 	}
-	return (NULL);
+	return (biggest_str);
 }
